@@ -22,7 +22,10 @@ module.exports = {
         fonts: [
           `poppins\:300,800`
         ],
-        display: 'swap'
+        display: 'swap',
+        attributes: {
+          rel: "stylesheet preload prefetch",
+        },
       }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
