@@ -20,7 +20,10 @@ const Hero = styled.div`
     background: -webkit-linear-gradient(0deg, rgba(239,248,255,1) 0%, rgba(255,255,255,1) 100%);
     background: linear-gradient(0deg, rgba(239,248,255,1) 0%, rgba(255,255,255,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eff8ff",endColorstr="#ffffff",GradientType=1);
-    
+    @media only screen and (min-width: 1921px){
+        margin: 0 auto;
+        width: 1905px;
+    }
     @media only screen and (max-width: 1440px){
         padding: 120px 4em;
     }

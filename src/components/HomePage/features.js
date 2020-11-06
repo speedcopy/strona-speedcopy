@@ -5,6 +5,11 @@ import styled from "styled-components"
 const Features = styled.div`
     display: flex;
     margin: 100px 15em;
+    @media only screen and (min-width: 1921px){
+        margin: 100px auto;
+        padding: 0 15em;
+        width: 1905px;
+    }
     @media only screen and (max-width: 1440px){
       margin: 100px 4em 100px 4em;
     }

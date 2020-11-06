@@ -10,6 +10,10 @@ import ContactSVG from "../../images/Kontakt-wynajem-ksero-piotrkow.svg"
 const Kontakt = styled.section`
     margin: 100px 0;
     display: flex;
+    @media only screen and (min-width: 1921px){
+        margin: 100px auto;
+        width: 1905px;
+    }
     @media only screen and (max-width: 768px){
         flex-direction: column;
     }

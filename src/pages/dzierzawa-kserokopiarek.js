@@ -28,6 +28,18 @@ const Heading = styled.span`
     font-size: 64px;
     font-weight: 800;
 `
+const PageContent = styled.div`
+    
+`
+const DIV = styled.div`
+    width: 1905px;
+    max-width: 100%;
+    height: 50vh;
+    background-color: black;
+    margin: 0 auto;
+    padding: 0 66px 0 66px;
+    clear: both;
+`
 
 const KolorowePage = () => (
   <Layout>
@@ -38,6 +50,9 @@ const KolorowePage = () => (
             <Heading>Kserokopiarek</Heading>
         </H1>
     </Hero>
+    <PageContent>
+        <DIV><p>lorem srolem</p></DIV>
+    </PageContent>
     <Footer/>
   </Layout>
 )

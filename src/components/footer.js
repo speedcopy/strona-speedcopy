@@ -12,6 +12,10 @@ const FooterWrapper = styled.footer`
     display: flex;
     justify-content: center;
     background-color: #3E7094;
+    @media only screen and (min-width: 1921px){
+        margin: 0 auto;
+        width: 1905px;
+    }
     @media only screen and (max-width: 1440px){
         padding: 50px 4em;
     }

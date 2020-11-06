@@ -11,6 +11,10 @@ import IMGKolorowe from "../../images/kolorowe.svg"
 
 const Ksero = styled.div`
     padding: 0;
+    @media only screen and (min-width: 1921px){
+        margin: 100px auto;
+        width: 1905px;
+    }
 `
 const KseroWrapper = styled.div`
     display: flex;

@@ -8,6 +8,10 @@ const Zasady = styled.div`
     padding: 0 15em;
     display: flex;
     background-color: #EFF8FF;
+    @media only screen and (min-width: 1921px){
+        margin: 100px auto;
+        width: 1905px;
+    }
     @media only screen and (max-width: 1440px){
       padding: 0 4em;
     }

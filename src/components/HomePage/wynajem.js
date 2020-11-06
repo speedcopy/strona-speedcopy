@@ -7,6 +7,10 @@ import WynajemImg from "../../images/Wynajem-ksero-piotrkow.jpg"
 
 const Wynajem = styled.div`
     display: flex;
+    @media only screen and (min-width: 1921px){
+        margin: 0 auto;
+        width: 1905px;
+    }
     @media only screen and (max-width: 768px){
       flex-direction: column;
     }

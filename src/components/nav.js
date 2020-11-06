@@ -28,6 +28,7 @@ const NAV = styled.nav`
             color: #545454;
         }
     }
+
     @media only screen and (max-width: 1440px){
         padding: 0 4em;
     }
@@ -37,7 +38,7 @@ const NAV = styled.nav`
     }
     
 `
-const LogoLink = styled.a`
+const LogoLink = styled(Link)`
     display: flex;
 `
 const DropdownContent = styled.ul`
@@ -225,7 +226,7 @@ const Nav = () => {
             <Link href="mailto:speed.copy@op.pl">speed.copy@op.pl</Link>
         </TopBar>
         <NAV>
-            <LogoLink to="/index">LOGO</LogoLink>
+            <LogoLink to="/">LOGO</LogoLink>
             <NavList>
                 <li><Link to="/">Strona główna</Link></li>
                 <li><Link to="/o-nas">O nas</Link></li>
