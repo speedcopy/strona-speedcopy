@@ -1,12 +1,17 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import gatsby from "gatsby"
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import Layout from "../components/layout"
 import Nav from "../components/nav"
 import Footer from "../components/footer"
+import { Helmet } from "react-helmet"
 
 import OnasImg from "../images/o-nas-wynajem-ksero.svg"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Hero = styled.div`
     position: relative;
@@ -64,6 +69,7 @@ const ImgWrapper = styled.div`
     margin-top: 100px;
     img{
         width: 100%;
+        transition: transform 0.5s ease-out;
     }
     @media only screen and (max-width: 768px){
         width: 100%;
@@ -94,27 +100,71 @@ const TextWrapper = styled.div`
    }
 `
 
-const KolorowePage = () => (
-  <Layout>
-    <Nav/>
-    <Hero>
-        <HeroBg></HeroBg>
-        <H1>
-            <Heading>O nas</Heading>
-            <SubHead>SpeedCopy - <br/>
-            Wynajem kserokopiarek Piotrków Trybunalski</SubHead>
-        </H1>
-        <ImgWrapper>
-            <img src={OnasImg} alt="Wynajem kserokopiarek Piotrków, Łódź"/>
-        </ImgWrapper>
-    </Hero>
-    <AboutText>
-        <TextWrapper>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        </TextWrapper>
-    </AboutText>
-    <Footer/>
-  </Layout>
-)
+function AboutPage() {
+    let aboutImgScrub = useRef();
+    let aboutTitleAnim = useRef();
+    let aboutSubTitleAnim = useRef();
 
-export default KolorowePage
+    useEffect(() => {
+        const aboutImgScrubConst = [
+            aboutImgScrub.current,
+        ];
+        const aboutTitleConst = [
+            aboutTitleAnim.current,
+        ];
+        const aboutSubTitleConst = [
+            aboutSubTitleAnim.current,
+        ];
+
+        gsap.to(aboutImgScrubConst, {
+            y: '10%',
+            scrollTrigger: {
+                trigger: '.about-hero-trigger',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
+            }
+        });
+        gsap.from(aboutTitleConst, {
+            x: '20%',
+            duration: '0.8',
+            opacity: 0,
+            ease: 'Power2.easeOut',
+        });
+        gsap.from(aboutSubTitleConst, {
+            y: '20%',
+            duration: '0.8',
+            delay: '0.4',
+            opacity: 0,
+            ease: 'Power2.easeOut',
+        });
+    })
+
+    return(
+    <Layout>
+        <Helmet>
+        <title>O nas - wynajem kserokopiarek | SpeedCopy</title>
+        </Helmet>
+        <Nav/>
+        <Hero className="about-hero-trigger">
+            <HeroBg></HeroBg>
+            <H1>
+                <Heading ref={aboutTitleAnim}>O nas</Heading>
+                <SubHead ref={aboutSubTitleAnim}>SpeedCopy - <br/>
+                Wynajem kserokopiarek Piotrków Trybunalski</SubHead>
+            </H1>
+            <ImgWrapper>
+                <img src={OnasImg} alt="Wynajem kserokopiarek Piotrków, Łódź" ref={aboutImgScrub}/>
+            </ImgWrapper>
+        </Hero>
+        <AboutText>
+            <TextWrapper>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </TextWrapper>
+        </AboutText>
+        <Footer/>
+    </Layout>
+        )
+    }
+
+export default AboutPage

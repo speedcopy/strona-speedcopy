@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import gatsby from "gatsby"
 import styled from "styled-components"
 import { Link } from "gatsby"
@@ -6,6 +6,7 @@ import { Link } from "gatsby"
 import PhoneSVG from "../../images/telephone.svg"
 import EmailSVG from "../../images/email.svg"
 import ContactSVG from "../../images/Kontakt-wynajem-ksero-piotrkow.svg"
+import gsap from "gsap/gsap-core"
 
 const Kontakt = styled.section`
     margin: 100px 0;
@@ -129,15 +130,29 @@ const KontaktMail = styled.p`
     
 `
 
-const HomeContact = () => {
+function HomeContact() {
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            gsap.from('.KontaktLeftTrigger p', 0.8, {
+                x: '-10%',
+                opacity: 0,
+                stagger: 0.4,
+                scrollTrigger: {
+                    trigger: '.KontaktLeftTrigger',
+                    start: 'top 75%',
+                }
+            })
+        }, 1000);
+
+    }, [])
 
     return(
         <Kontakt>
-            <KontaktLeft>
+            <KontaktLeft className="KontaktLeftTrigger">
                 <KontaktTitle>Kontakt</KontaktTitle>
-                <KontaktAdres>Xerofactor sp. z o.o. ul. Żeromskiego 3 97-300 Piotrków Tryb.</KontaktAdres>
-                <KontaktPhone><Link href="tel:535492135"><img src={PhoneSVG}/>+48 535-492-135</Link></KontaktPhone>
-                <KontaktMail><Link href="mailto:xerofactor@op.pl"><img src={EmailSVG}/>xerofactor@op.pl</Link></KontaktMail>
+                <KontaktAdres>Speed Copy ul. Piotrkowska 20, 97-371 Bujny</KontaktAdres>
+                <KontaktPhone><Link href="tel:535492135"><img src={PhoneSVG}/>+48 533 030 647</Link></KontaktPhone>
+                <KontaktMail><Link href="mailto:xerofactor@op.pl"><img src={EmailSVG}/>speed.copy@op.pl</Link></KontaktMail>
             </KontaktLeft>
             <KontaktRight>
                 <img src={ContactSVG}/>

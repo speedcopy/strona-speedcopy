@@ -1,14 +1,18 @@
-import React from "react"
-import gatsby from "gatsby"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 import HeroImg from "../../images/Wynajem-kserokopiarek-piotrkow-trybunalski-speedcopy.png"
 import HeroImgCircleLines from "../../images/circle-lines.svg"
 import HeroImgCircleGradient from "../../images/circle-gradient.svg"
 import HeroImgArrowsBottom from "../../images/arrows-bottom.svg"
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Hero = styled.div`
+    min-height: 100vh;
     overflow: hidden;
     margin: 0;
     padding: 120px 15em;
@@ -42,6 +46,7 @@ const HeroText = styled.div`
 const H1 = styled.h1`
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 `
 const HeroDivBig = styled.div`
     font-size: 96px;
@@ -94,6 +99,7 @@ const CircleLines = styled.img`
     width: 100%;
     height: 100%;
     z-index: 1;
+    transition: transform 0.5s ease-out;
 `
 const CircleGradient = styled.img`
     position: absolute;
@@ -102,6 +108,7 @@ const CircleGradient = styled.img`
     width: 20%;
     height: 20%;
     z-index: 3;
+    transition: transform 0.5s ease-out;
 `
 const ArrowsBottom = styled.img`
     position: absolute;
@@ -133,21 +140,52 @@ const Button = styled.button`
     }
 `
 
-const HomeHero = () => {
+function HomeHero() {
+
+    useEffect(() => {
+        gsap.from('.hero-title-anim span', 0.5, {
+            x: '-100%',
+            opacity: 0,
+            stagger: 0.5,
+        });
+        gsap.from('.hero-subtitle-anim', 0.7, {
+            y: '30%',
+            opacity: 0,
+            delay: '1',
+        });
+        gsap.to('.circle-lines-anim', 1, {
+            y: '20%',
+            scrollTrigger: {
+                trigger: '.heroScrollTrigger',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
+            }
+        });
+        gsap.to('.circle-gradient-anim', 1, {
+            y: '-30%',
+            scrollTrigger: {
+                trigger: '.heroScrollTrigger',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
+            }
+        });
+    }, [])
 
   return(
-    <Hero>
+    <Hero className="heroScrollTrigger">
       <HeroText>
         <H1>
-            <HeroDivBig><SpanBlue>Speed</SpanBlue><SpanWhiteBlue>Copy</SpanWhiteBlue></HeroDivBig>
-            <HeroSpan>Wynajem kserokopiarek do biur w ramach miesięcznego abonamentu. Serwis i naprawy w cenie!</HeroSpan>
+            <HeroDivBig className="hero-title-anim"><SpanBlue className="span-blue-anim">Speed</SpanBlue><SpanWhiteBlue className="SpanWhiteBlueAnim">Copy</SpanWhiteBlue></HeroDivBig>
+            <HeroSpan className="hero-subtitle-anim">Wynajem kserokopiarek do biur w ramach miesięcznego abonamentu. Serwis i naprawy w cenie!</HeroSpan>
         </H1>
-        <Button><Link to="/kserokopiarki">Zobacz ofertę</Link></Button>
+        <Button><Link to="/dzierzawa-kserokopiarek">Zobacz ofertę</Link></Button>
       </HeroText>
       <HeroImageWrapper>
         <HeroWrapperIMG src={HeroImg} alt="Wynajem kserokopiarek Piotrków Trybunalski" />
-        <CircleLines src={HeroImgCircleLines}/>
-        <CircleGradient src={HeroImgCircleGradient}/>
+        <CircleLines src={HeroImgCircleLines} className="circle-lines-anim"/>
+        <CircleGradient src={HeroImgCircleGradient} className="circle-gradient-anim"/>
         <ArrowsBottom src={HeroImgArrowsBottom}/>
       </HeroImageWrapper>
     </Hero>

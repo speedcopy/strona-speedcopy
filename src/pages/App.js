@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react"
 import { useIntersection } from 'react-use'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { CSSRulePlugin } from "gsap/CSSRulePlugin";
 
 import Layout from "../components/layout"
 import HomeHero from "../components/HomePage/hero"
@@ -22,9 +21,11 @@ gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
 
 
-function IndexPage() {
+function App() {
 
   const sectionRef = useRef(null);
+
+  const zasadyRefH4 = useRef(null);
 
   const intersection = useIntersection(sectionRef, {
     root: null,
@@ -55,39 +56,19 @@ function IndexPage() {
   : fadeIn('.wynajem-left-anim')
 
   useEffect(() => {
-    const timeout = setTimeout(() =>{
-      gsap.to("body", 0, { css: { visibility: "visible" } });
-      gsap.from('.wynajem-h2-anim', 1, {
-        y: '-10%',
-        opacity: 0,
-        ease: 'Power4.easeInOut',
-        scrollTrigger: {
-          trigger: '.wynajem-right-trigger',
-          start: 'top 75%',
-        }
-      });
-      gsap.from('.wynajem-text-anim', 1, {
-        y: '20%',
-        opacity: 0,
-        ease: 'Power4.easeInOut',
-        delay: 0.2,
-        scrollTrigger: {
-          trigger: '.wynajem-right-trigger',
-          start: 'top 75%',
-        }
-      });
-      gsap.from('.wynajem-button-anim', 0.8, {
-        y: '30%',
-        opacity: 0,
-        ease: 'Power4.easeInOut',
-        delay: 0.4,
-        scrollTrigger: {
-          trigger: '.wynajem-right-trigger',
-          start: 'top 75%',
-        }
-      });
-
-    }, 1000);
+    
+    gsap.from(zasadyRefH4.current, 2, {
+      y: '-50%',
+      opacity: 0,
+      ease: 'Power4.easeOut',
+      scrollTrigger: {
+        trigger: zasadyRefH4.current,
+        start: 'top center',
+        toggleActions: 'play none none reverse',
+        markers: true,
+      }
+    });
+    
   }, [])
   
   return(
@@ -99,7 +80,7 @@ function IndexPage() {
         <HomeHero/>
         <HomeWynajem sectionRef={sectionRef}/>
         <HomeFeatures/>
-        <HomeZasady/>
+        <HomeZasady zasadyRefH4={zasadyRefH4}/>
         <HomeKsero/>
         <HomeContact/>
         <Footer/>
@@ -107,4 +88,4 @@ function IndexPage() {
   )
 }
 
-export default IndexPage
+export default App

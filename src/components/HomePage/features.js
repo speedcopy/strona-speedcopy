@@ -2,6 +2,8 @@ import React from "react"
 import gatsby from "gatsby"
 import styled from "styled-components"
 
+
+
 const Features = styled.div`
     display: flex;
     margin: 100px 15em;
@@ -65,8 +67,7 @@ const FtText = styled.p`
     }
 `
 
-const HomeFeatures = () => {
-
+function HomeFeatures() {
     return(
       <Features>
           <FeaturesRow>

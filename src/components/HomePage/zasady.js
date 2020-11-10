@@ -1,8 +1,15 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import gatsby from "gatsby"
 import styled from "styled-components"
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import ZasadyImg from "../../images/Zasady-Wynajmu-Kserokopiarek.png"
+
+if (typeof window !== `undefined`) {
+  gsap.registerPlugin(ScrollTrigger)
+  gsap.core.globals("ScrollTrigger", ScrollTrigger)
+}
 
 const Zasady = styled.div`
     padding: 0 15em;
@@ -69,19 +76,55 @@ const StyledIMG = styled.img`
     width: 100%;
     height: auto;
 `
+const HoverSpan = styled.span`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #EFF8FF;
+`
 
 
-const HomeZasady = () => {
 
+function HomeZasady() {
+  let ZasadySpan = useRef(null);
+  const zasadyRefH4 = useRef(null);
+
+  useEffect(() => {
+    const timeout = setTimeout(() =>{
+      gsap.fromTo(ZasadySpan.current, 2,
+        { x: '-80%', ease: 'Power4.easeInOut' },
+        { x: '90%', ease: 'Power4.easeInOut', scrollTrigger: {
+          trigger: '.zasady-right-trigger',
+          start: 'top 75%',
+          toggleActions: 'play none none reverse',
+        }}
+      );
+      
+      gsap.from(zasadyRefH4.current, 2, {
+        y: '-50%',
+        opacity: 0,
+        ease: 'Power4.easeInOut',
+        scrollTrigger: {
+          trigger: '.zasady-left-trigger',
+          start: 'top 75%',
+          toggleActions: 'play none none reverse',
+        }
+      });
+    }, 1000);
+      
+}, []);
     return(
       <Zasady>
-          <ZasadyLeft>
-              <ZasadyH3>Jasne zasady wynajmu</ZasadyH3>
+          <ZasadyLeft className="zasady-left-trigger">
+              <ZasadyH3 ref={zasadyRefH4}>Jasne zasady wynajmu</ZasadyH3>
               <ZasadyText>Przez cały okres wynajmu urządzenie pozostaje własnością naszej firmy i jest objęte bezpłatną, pełną opieką serwisową, a użytkownik nie ponosi żadnych kosztów związanych z eksploatacją.
                 Dzięki temu wszelkie ewentualne problemy związane z jego użytkowaniem są naszymi problemami, a nie Wynajmującego.</ZasadyText>
           </ZasadyLeft>
-          <ZasadyRight>
+          <ZasadyRight className="zasady-right-trigger">
               <StyledIMG src={ZasadyImg}/>
+              <HoverSpan ref={ZasadySpan}></HoverSpan>
           </ZasadyRight>
       </Zasady>
     )

@@ -17,6 +17,7 @@ const Ksero = styled.div`
     }
 `
 const KseroWrapper = styled.div`
+    min-height: 50vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,6 +38,7 @@ const KseroBox = styled.div`
     justify-content: center;
     align-items: center;
     width: 33.333%;
+    min-height: 400px;
     margin-right: 50px;
 
     &:last-child{
@@ -50,6 +52,7 @@ const KseroBox = styled.div`
 `
 const KseroIMG = styled.img`
     width: 100%;
+    height: 100%;
     height: auto;
     margin-bottom: 30px;
 `
@@ -59,6 +62,7 @@ const KseroTitle = styled.p`
     color: #545454;
 `
 const KseroMore = styled.div`
+    min-height: 50vh;
     background-color: #EFF8FF;
     margin: 0 0 100px 15em;
     padding: 50px 15em 50px 30px;
