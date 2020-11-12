@@ -1,5 +1,4 @@
 import React, { useEffect } from "react"
-import gatsby from "gatsby"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import "../layouts/menu.css"
@@ -151,62 +150,6 @@ const Arrow = styled.i`
     right: -15px;
 `
 
-
-
-//Hamburger menu
-/*
-const Hamburger = styled.button`
-    padding: 10px;
-    display: inline-block;
-    cursor: pointer;
-    background-color: transparent;
-    border: 0;
-    margin: 0;
-    transition: transform 0.3s ease-in-out;
-    z-index: 100;
-`
-
-const HamburgerSpan = styled.span`
-    width: 40px;
-    height: 24px;
-    display: inline-block;
-    position: relative;
-`
-const HamburgerSpanInner = styled.span`
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    height: 3px;
-    background-color: black;
-    position: absolute;
-    transition: background-color 0.3s 0.1s ease-in-out;
-        &::before{
-            content: "";
-            width: 100%;
-            height: 3px;
-            background-color: black;
-            position: absolute;
-            left: 0;
-            top: -10px;
-            transition: transform 0.3s 0.1s ease-in-out, background-color 1s ease-in-out;
-        }
-        &::after{
-            content: "";
-            width: 100%;
-            height: 3px;
-            background-color: black;
-            position: absolute;
-            left: 0;
-            top: 10px;
-            transition: background-color 1s ease-in-out;
-        }
-`
-*/
-
-
-
-
 const Nav = () => {
     useEffect(() => {
         const hamburger = document.querySelector(".hamburger");
@@ -222,8 +165,8 @@ const Nav = () => {
     return(
       <>
         <TopBar>
-            <Link href="tel:533030647">Tel: 533030647</Link>
-            <Link href="mailto:speed.copy@op.pl">speed.copy@op.pl</Link>
+            <a href="tel:533030647">Tel: 533030647</a>
+            <a href="mailto:speed.copy@op.pl">speed.copy@op.pl</a>
         </TopBar>
         <NAV>
             <LogoLink to="/">LOGO</LogoLink>

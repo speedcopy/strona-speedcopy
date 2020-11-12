@@ -1,5 +1,4 @@
 import React, { useEffect } from "react"
-import gatsby from "gatsby"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
@@ -132,11 +131,12 @@ const KontaktMail = styled.p`
 
 function HomeContact() {
     useEffect(() => {
-        const timeout = setTimeout(() => {
+        setTimeout(() => {
             gsap.from('.KontaktLeftTrigger p', 0.8, {
                 x: '-10%',
                 opacity: 0,
-                stagger: 0.4,
+                ease: 'Back.easeInOut',
+                stagger: 0.2,
                 scrollTrigger: {
                     trigger: '.KontaktLeftTrigger',
                     start: 'top 75%',
@@ -151,11 +151,11 @@ function HomeContact() {
             <KontaktLeft className="KontaktLeftTrigger">
                 <KontaktTitle>Kontakt</KontaktTitle>
                 <KontaktAdres>Speed Copy ul. Piotrkowska 20, 97-371 Bujny</KontaktAdres>
-                <KontaktPhone><Link href="tel:535492135"><img src={PhoneSVG}/>+48 533 030 647</Link></KontaktPhone>
-                <KontaktMail><Link href="mailto:xerofactor@op.pl"><img src={EmailSVG}/>speed.copy@op.pl</Link></KontaktMail>
+                <KontaktPhone><Link href="tel:535492135"><img src={PhoneSVG} alt=""/>+48 533 030 647</Link></KontaktPhone>
+                <KontaktMail><Link href="mailto:xerofactor@op.pl"><img src={EmailSVG} alt=""/>speed.copy@op.pl</Link></KontaktMail>
             </KontaktLeft>
             <KontaktRight>
-                <img src={ContactSVG}/>
+                <img src={ContactSVG} alt=""/>
             </KontaktRight>
         </Kontakt>
     )

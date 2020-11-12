@@ -41,20 +41,22 @@ const DIV = styled.div`
     clear: both;
 `
 
-const KolorowePage = () => (
-  <Layout>
-    <Nav/>
-    <Hero>
-        <H1>
-            <SubHead>Dzierżawa</SubHead>
-            <Heading>Kserokopiarek</Heading>
-        </H1>
-    </Hero>
-    <PageContent>
-        <DIV><p>lorem srolem</p></DIV>
-    </PageContent>
-    <Footer/>
-  </Layout>
-)
+function DzierzawaPage() {
+  return(
+    <Layout>
+        <Nav/>
+        <Hero>
+            <H1>
+                <SubHead>Dzierżawa</SubHead>
+                <Heading>Kserokopiarek</Heading>
+            </H1>
+        </Hero>
+        <PageContent>
+            <DIV><p>lorem srolem</p></DIV>
+        </PageContent>
+        <Footer/>
+    </Layout>
+  )
+}
 
-export default KolorowePage
+export default DzierzawaPage

@@ -1,6 +1,6 @@
-import React from "react"
-import gatsby from "gatsby"
+import React, { useRef, useEffect } from "react"
 import styled from "styled-components"
+import gsap from "gsap/gsap-core"
 
 
 
@@ -68,19 +68,46 @@ const FtText = styled.p`
 `
 
 function HomeFeatures() {
+  let AnimatedFtBox1 = useRef(null);
+  let AnimatedFtBox2 = useRef(null);
+  let AnimatedFtBox3 = useRef(null);
+
+  
+    useEffect(() => {
+      setTimeout(() => {
+        const AnimatedFtBoxes = [
+          AnimatedFtBox1.current,
+          AnimatedFtBox2.current,
+          AnimatedFtBox3.current,
+        ];
+
+        gsap.from(AnimatedFtBoxes, 0.6, {
+          y: '-30%',
+          opacity: 0,
+          stagger: '0.2',
+          ease: 'Back.easeOut',
+          scrollTrigger: {
+            trigger: AnimatedFtBoxes,
+            start: 'top 75%',
+          }
+        })
+    }, 1000)
+  }, [])
+  
+
     return(
       <Features>
-          <FeaturesRow>
+          <FeaturesRow ref={AnimatedFtBox1}>
               <FtSpan>1</FtSpan>
               <FtTitle>Darmowa instalacja maszyny</FtTitle>
               <FtText>Nie pobieramy żadnych opłat związanych z eksploatacją maszyny, jej instalacją, czy też szkoleniu pracowników w zakresie jej obsługi.</FtText>
           </FeaturesRow>
-          <FeaturesRow>
+          <FeaturesRow ref={AnimatedFtBox2}>
               <FtSpan>2</FtSpan>
               <FtTitle>Expresowa dostawa sprzętu</FtTitle>
               <FtText>Kserokopiarki które sprzedajemy, czy też dzierżawimy, wysyłamy tego samego lub następnego dnia roboczego na adres wskazany przez klienta.</FtText>
           </FeaturesRow>
-          <FeaturesRow>
+          <FeaturesRow ref={AnimatedFtBox3}>
               <FtSpan>3</FtSpan>
               <FtTitle>Kserokopiarki firmy Konica Minolta</FtTitle>
               <FtText>Konica Minolta jest jednym z liderów, jeżeli chodzi o produkcję kopiarek - sprzęt cechuje wytrzymałość i długi czas żywotności, a firma usługi świadczy od 1928 roku.</FtText>

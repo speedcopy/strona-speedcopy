@@ -1,7 +1,7 @@
-import React from "react"
-import gatsby from "gatsby"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import gsap from "gsap"
 
 import KseroImg from "../../images/Zasady-Wynajmu-Kserokopiarek.png"
 import KseroImg2 from "../../images/Wynajem-Ksero-Bizhubc558.png"
@@ -40,6 +40,7 @@ const KseroBox = styled.div`
     width: 33.333%;
     min-height: 400px;
     margin-right: 50px;
+    overflow: hidden;
 
     &:last-child{
         margin: 0;
@@ -150,27 +151,46 @@ const Button = styled.button`
         color: white;
         font-size: 18px;
         text-transform: uppercase;
+        @media only screen and (max-width: 768px){
+            font-size: 12px;
+            padding: 10px 15px;
+        }
     }
     &:hover{
         background-color: #3E7094;
     }
 `
 
-const HomeKsero = () => {
+function HomeKsero() {
+
+    useEffect(() => {
+        setTimeout(() => {
+            gsap.from(".ksero-box-anim", 0.7, {
+                y: '-100%',
+                ease: 'Back.easeInOut',
+                stagger: '0.1',
+                scrollTrigger: {
+                    trigger: '.ksero-box-anim-trigger',
+                    start: 'top 75%',
+                }
+            })
+        }, 1000);
+        
+    }, [])
 
     return(
         <Ksero>
             <KseroWrapper>
-                <KseroBox>
-                    <KseroIMG src={KseroImg}/>
+                <KseroBox className="ksero-box-anim-trigger">
+                    <KseroIMG src={KseroImg} alt="Bizhub c308 Wynajem kserokopiarek do biur" className="ksero-box-anim"/>
                     <KseroTitle>Bizhub C308</KseroTitle>
                 </KseroBox>
                 <KseroBox>
-                    <KseroIMG src={KseroImg2}/>
+                    <KseroIMG src={KseroImg2} alt="Bizhub c558 Wynajem ksero" className="ksero-box-anim"/>
                     <KseroTitle>Bizhub C558</KseroTitle>
                 </KseroBox>
                 <KseroBox>
-                    <KseroIMG src={KseroImg3}/>
+                    <KseroIMG src={KseroImg3} alt="Bizhub c654 Dzierżawa kserokopiarek Piotrków" className="ksero-box-anim"/>
                     <KseroTitle>Bizhub C654</KseroTitle>
                 </KseroBox>
             </KseroWrapper>
@@ -179,12 +199,12 @@ const HomeKsero = () => {
                 <KseroMoreWrapper>
                     <KseroLeft>
                         <KseroMoreTitle>Czarno-białe</KseroMoreTitle>
-                        <KseroMoreImg><img src={IMGCzarnoBiale}/></KseroMoreImg>
+                        <KseroMoreImg><img src={IMGCzarnoBiale} alt=""/></KseroMoreImg>
                         <Button><Link to="/kserokopiarki">Zobacz więcej</Link></Button>
                     </KseroLeft>
                     <KseroRight>
                         <KseroMoreTitle>Kolorowe</KseroMoreTitle>
-                        <KseroMoreImg><img src={IMGKolorowe}/></KseroMoreImg>
+                        <KseroMoreImg><img src={IMGKolorowe} alt=""/></KseroMoreImg>
                         <Button><Link to="/kserokopiarki">Zobacz więcej</Link></Button>
                     </KseroRight>
                 </KseroMoreWrapper>

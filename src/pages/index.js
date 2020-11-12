@@ -1,8 +1,6 @@
-import React, { useEffect, useRef } from "react"
-import { useIntersection } from 'react-use'
+import React, { useEffect } from "react"
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { CSSRulePlugin } from "gsap/CSSRulePlugin";
 
 import Layout from "../components/layout"
 import HomeHero from "../components/HomePage/hero"
@@ -24,46 +22,17 @@ gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
 function IndexPage() {
 
-  const sectionRef = useRef(null);
-
-  const intersection = useIntersection(sectionRef, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.3
-  });
-
-  const fadeIn = element => {
-    gsap.fromTo(element, 2, {
-      x: '-100%',
-      ease: 'Power4.easeInOut',
-      opacity: 1,
-    },{
-      x: '100%',
-      ease: 'Power4.easeInOut',
-      opacity: 1,
-    });
-  };
-  
-  const fadeOut = element => {
-    gsap.to(element, 1, {
-      opacity: 0,
-    })
-  };
-
-  intersection && intersection.intersectionRatio < 0.3
-  ? fadeOut('.wynajem-left-anim')
-  : fadeIn('.wynajem-left-anim')
-
   useEffect(() => {
-    const timeout = setTimeout(() =>{
+    setTimeout(() =>{
       gsap.to("body", 0, { css: { visibility: "visible" } });
-      gsap.from('.wynajem-h2-anim', 1, {
+      gsap.from('.wynajem-h2-anim', 0.7, {
         y: '-10%',
         opacity: 0,
-        ease: 'Power4.easeInOut',
+        ease: 'Back.easeInOut',
         scrollTrigger: {
           trigger: '.wynajem-right-trigger',
           start: 'top 75%',
+          toggleActions: 'play none none reverse',
         }
       });
       gsap.from('.wynajem-text-anim', 1, {
@@ -74,6 +43,7 @@ function IndexPage() {
         scrollTrigger: {
           trigger: '.wynajem-right-trigger',
           start: 'top 75%',
+          toggleActions: 'play none none reverse',
         }
       });
       gsap.from('.wynajem-button-anim', 0.8, {
@@ -84,8 +54,23 @@ function IndexPage() {
         scrollTrigger: {
           trigger: '.wynajem-right-trigger',
           start: 'top 75%',
+          toggleActions: 'play none none reverse',
         }
       });
+      gsap.fromTo('.wynajem-left-anim', 1, {
+        x: '-100%',
+        ease: 'Expo.easeInOut',
+      },
+      {
+        x: '200%',
+        ease: 'Expo.easeInOut',
+        scrollTrigger: {
+          trigger: '.wynajem-left-anim-trigger',
+          start: 'top center',
+          toggleActions: 'play none none reverse',
+        }
+      }
+      );
 
     }, 1000);
   }, [])
@@ -97,7 +82,7 @@ function IndexPage() {
         </Helmet>
         <Nav/>
         <HomeHero/>
-        <HomeWynajem sectionRef={sectionRef}/>
+        <HomeWynajem/>
         <HomeFeatures/>
         <HomeZasady/>
         <HomeKsero/>

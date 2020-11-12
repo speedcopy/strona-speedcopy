@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react"
-import gatsby from "gatsby"
 import styled from "styled-components"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import ZasadyImg from "../../images/Zasady-Wynajmu-Kserokopiarek.png"
+import ZasadyTriangles from "../../images/triangles.svg"
 
 if (typeof window !== `undefined`) {
   gsap.registerPlugin(ScrollTrigger)
@@ -15,6 +15,7 @@ const Zasady = styled.div`
     padding: 0 15em;
     display: flex;
     background-color: #EFF8FF;
+    position: relative;
     @media only screen and (min-width: 1921px){
         margin: 100px auto;
         width: 1905px;
@@ -80,9 +81,26 @@ const HoverSpan = styled.span`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 50%;
     height: 100%;
     background-color: #EFF8FF;
+`
+const TrianglesWrapper = styled.div`
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 5vw;
+    height: auto;
+    z-index: 100;
+    transition: transform 0.5s ease-out;
+    @media only screen and (min-width: 1921px){
+      width: 2vw;
+    }
+`
+const IMGTriangles = styled.img`
+    width: 100%;
+    height: auto;
+    z-index: 100;
 `
 
 
@@ -92,26 +110,36 @@ function HomeZasady() {
   const zasadyRefH4 = useRef(null);
 
   useEffect(() => {
-    const timeout = setTimeout(() =>{
+    setTimeout(() =>{
       gsap.fromTo(ZasadySpan.current, 2,
-        { x: '-80%', ease: 'Power4.easeInOut' },
-        { x: '90%', ease: 'Power4.easeInOut', scrollTrigger: {
+        { x: '-50%', ease: 'Expo.easeInOut' },
+        { x: '200%', ease: 'Expo.easeInOut', scrollTrigger: {
           trigger: '.zasady-right-trigger',
           start: 'top 75%',
           toggleActions: 'play none none reverse',
         }}
       );
       
-      gsap.from(zasadyRefH4.current, 2, {
+      gsap.from(zasadyRefH4.current, 0.7, {
         y: '-50%',
         opacity: 0,
-        ease: 'Power4.easeInOut',
+        ease: 'Back.easeOut',
         scrollTrigger: {
           trigger: '.zasady-left-trigger',
           start: 'top 75%',
           toggleActions: 'play none none reverse',
         }
       });
+
+      gsap.to('.triangles-anim', 0.7, {
+        y: '-30%',
+        scrollTrigger: {
+          trigger: '.zasady-right-trigger',
+          start: 'top 75%',
+          scrub: true,
+        }
+      });
+
     }, 1000);
       
 }, []);
@@ -126,6 +154,9 @@ function HomeZasady() {
               <StyledIMG src={ZasadyImg}/>
               <HoverSpan ref={ZasadySpan}></HoverSpan>
           </ZasadyRight>
+          <TrianglesWrapper className="triangles-anim">
+            <IMGTriangles src={ZasadyTriangles} alt=""/>
+          </TrianglesWrapper>
       </Zasady>
     )
   }

@@ -1,5 +1,4 @@
 import React from "react"
-import gatsby from "gatsby"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
@@ -135,9 +134,9 @@ const Footer = () => {
                 </LeftWrapper>
                 <RightWrapper>
                     <MenuTitle>Kontakt:</MenuTitle>
-                    <KontaktPhone><Link href="tel:535492135"><img src={PhoneSVG}/>+48 535-492-135</Link></KontaktPhone>
-                    <KontaktMail><Link href="mailto:xerofactor@op.pl"><img src={EmailSVG}/>xerofactor@op.pl</Link></KontaktMail>
-                    <FbLink href="#"><img src={FacebookSVG}/></FbLink>
+                    <KontaktPhone><Link href="tel:535492135"><img src={PhoneSVG} alt=""/>+48 535-492-135</Link></KontaktPhone>
+                    <KontaktMail><Link href="mailto:xerofactor@op.pl"><img src={EmailSVG} alt=""/>xerofactor@op.pl</Link></KontaktMail>
+                    <FbLink href="#"><img src={FacebookSVG} alt="Facebook SpeedCopy Wynajem kserokopiarek Piotrków Trybunalski"/></FbLink>
                 </RightWrapper>
             </FooterLeft>
             <FooterRight>LOGO</FooterRight>

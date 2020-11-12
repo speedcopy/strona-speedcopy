@@ -84,7 +84,7 @@ const Title = styled.p`
     font-size: 24px;
     margin-bottom: 15px;
 `
-const Desc = styled.p`
+const Desc = styled.div`
     font-weight: 300;
     font-size: 18px;
     @media only screen and (max-width: 768px){

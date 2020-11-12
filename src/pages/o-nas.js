@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
-import gatsby from "gatsby"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 

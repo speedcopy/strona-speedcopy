@@ -1,7 +1,7 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import gsap from "gsap"
+import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 import HeroImg from "../../images/Wynajem-kserokopiarek-piotrkow-trybunalski-speedcopy.png"
@@ -60,9 +60,11 @@ const HeroDivBig = styled.div`
     
 `
 const SpanBlue = styled.span`
+    display: inline-block;
     color: #3E7094;
 `
 const SpanWhiteBlue = styled.span`
+    display: inline-block;
     color: #36BEEC;
 `
 const HeroSpan = styled.span`
@@ -134,6 +136,10 @@ const Button = styled.button`
         color: white;
         font-size: 16px;
         text-transform: uppercase;
+        @media only screen and (max-width: 768px){
+            font-size: 12px;
+            padding: 10px 15px;
+        }
     }
     &:hover{
         background-color: #3E7094;
@@ -142,16 +148,25 @@ const Button = styled.button`
 
 function HomeHero() {
 
+    let AnimatedSpan1 = useRef(null);
+    let AnimatedSpan2 = useRef(null);
+
     useEffect(() => {
-        gsap.from('.hero-title-anim span', 0.5, {
-            x: '-100%',
+        const AnimatedSpans = [
+            AnimatedSpan1.current,
+            AnimatedSpan2.current,
+        ];
+        gsap.from(AnimatedSpans, 0.7, {
+            y: '-50%',
             opacity: 0,
-            stagger: 0.5,
+            stagger: 0.3,
+            ease: 'Back.easeInOut'
         });
         gsap.from('.hero-subtitle-anim', 0.7, {
             y: '30%',
             opacity: 0,
-            delay: '1',
+            delay: '0.6',
+            ease: 'Power2.easeOut'
         });
         gsap.to('.circle-lines-anim', 1, {
             y: '20%',
@@ -177,7 +192,7 @@ function HomeHero() {
     <Hero className="heroScrollTrigger">
       <HeroText>
         <H1>
-            <HeroDivBig className="hero-title-anim"><SpanBlue className="span-blue-anim">Speed</SpanBlue><SpanWhiteBlue className="SpanWhiteBlueAnim">Copy</SpanWhiteBlue></HeroDivBig>
+            <HeroDivBig className="hero-title-anim"><SpanBlue ref={AnimatedSpan1} className="span-blue-anim">Speed</SpanBlue><SpanWhiteBlue ref={AnimatedSpan2} className="SpanWhiteBlueAnim">Copy</SpanWhiteBlue></HeroDivBig>
             <HeroSpan className="hero-subtitle-anim">Wynajem kserokopiarek do biur w ramach miesięcznego abonamentu. Serwis i naprawy w cenie!</HeroSpan>
         </H1>
         <Button><Link to="/dzierzawa-kserokopiarek">Zobacz ofertę</Link></Button>
