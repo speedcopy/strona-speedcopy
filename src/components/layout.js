@@ -2,7 +2,6 @@ import React from "react"
 import { createGlobalStyle } from "styled-components"
 
 const GlobalStyles = createGlobalStyle`
-    //@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;800&display=swap');
     body{
         margin: 0;
         padding: 0;
@@ -17,6 +16,14 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+    }
+    ::-moz-selection { /* Code for Firefox */
+        color: #3E7094;
+        background: #36BEEC;
+    }
+    ::selection {
+        color: #3E7094;
+        background: #36BEEC;
     }
     p{
         font-weight: 300;

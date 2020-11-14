@@ -1,6 +1,5 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
 
 import PhoneSVG from "../../images/telephone.svg"
 import EmailSVG from "../../images/email.svg"
@@ -151,8 +150,8 @@ function HomeContact() {
             <KontaktLeft className="KontaktLeftTrigger">
                 <KontaktTitle>Kontakt</KontaktTitle>
                 <KontaktAdres>Speed Copy ul. Piotrkowska 20, 97-371 Bujny</KontaktAdres>
-                <KontaktPhone><Link href="tel:535492135"><img src={PhoneSVG} alt=""/>+48 533 030 647</Link></KontaktPhone>
-                <KontaktMail><Link href="mailto:xerofactor@op.pl"><img src={EmailSVG} alt=""/>speed.copy@op.pl</Link></KontaktMail>
+                <KontaktPhone><a href="tel:535492135"><img src={PhoneSVG} alt=""/>+48 533 030 647</a></KontaktPhone>
+                <KontaktMail><a href="mailto:xerofactor@op.pl"><img src={EmailSVG} alt=""/>speed.copy@op.pl</a></KontaktMail>
             </KontaktLeft>
             <KontaktRight>
                 <img src={ContactSVG} alt=""/>

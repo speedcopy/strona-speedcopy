@@ -57,7 +57,7 @@ function IndexPage() {
           toggleActions: 'play none none reverse',
         }
       });
-      gsap.fromTo('.wynajem-left-anim', 1, {
+      gsap.fromTo('.wynajem-left-anim', 1.5, {
         x: '-100%',
         ease: 'Expo.easeInOut',
       },

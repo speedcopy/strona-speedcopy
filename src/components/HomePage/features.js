@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import gsap from "gsap/gsap-core"
+
 
 
 
@@ -21,6 +22,28 @@ const Features = styled.div`
     }
     
 `
+const FtSpan = styled.span`
+    color: #E3E3E3;
+    font-size: 144px;
+    position: absolute;
+    top: -40%;
+    left: -10%;
+    z-index: -1;
+    transition: color 0.3s ease-out;
+    @media only screen and (max-width: 768px){
+      font-size: 92px;
+    }
+`
+const FtTitle = styled.p`
+    color: black;
+    font-size: 28px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease-out;
+    @media only screen and (max-width: 768px){
+      font-size: 18px;
+    }
+`
+
 const FeaturesRow = styled.div`
     display: flex;
     flex-direction: column;
@@ -29,6 +52,12 @@ const FeaturesRow = styled.div`
     margin-right: 200px;
     &:last-child{
         margin: 0;
+    }
+    &:hover ${FtSpan}{
+      color: #36BEEC; 
+    }
+    &:hover ${FtTitle}{
+      transform: translateX(10%);
     }
     @media only screen and (max-width: 1440px){
       margin-right: 150px;
@@ -40,25 +69,7 @@ const FeaturesRow = styled.div`
     }
     
 `
-const FtSpan = styled.span`
-    color: #E3E3E3;
-    font-size: 144px;
-    position: absolute;
-    top: -40%;
-    left: -10%;
-    z-index: -1;
-    @media only screen and (max-width: 768px){
-      font-size: 92px;
-    }
-`
-const FtTitle = styled.p`
-    color: black;
-    font-size: 28px;
-    margin-bottom: 15px;
-    @media only screen and (max-width: 768px){
-      font-size: 18px;
-    }
-`
+
 const FtText = styled.p`
     color: #545454;
     font-size: 18px;
@@ -68,26 +79,15 @@ const FtText = styled.p`
 `
 
 function HomeFeatures() {
-  let AnimatedFtBox1 = useRef(null);
-  let AnimatedFtBox2 = useRef(null);
-  let AnimatedFtBox3 = useRef(null);
-
-  
     useEffect(() => {
       setTimeout(() => {
-        const AnimatedFtBoxes = [
-          AnimatedFtBox1.current,
-          AnimatedFtBox2.current,
-          AnimatedFtBox3.current,
-        ];
-
-        gsap.from(AnimatedFtBoxes, 0.6, {
+        gsap.from('.animated-ft-box', 0.6, {
           y: '-30%',
           opacity: 0,
           stagger: '0.2',
           ease: 'Back.easeOut',
           scrollTrigger: {
-            trigger: AnimatedFtBoxes,
+            trigger: '.animated-ft-box-trigger',
             start: 'top 75%',
           }
         })
@@ -96,18 +96,18 @@ function HomeFeatures() {
   
 
     return(
-      <Features>
-          <FeaturesRow ref={AnimatedFtBox1}>
+      <Features className="animated-ft-box-trigger">
+          <FeaturesRow className="animated-ft-box">
               <FtSpan>1</FtSpan>
               <FtTitle>Darmowa instalacja maszyny</FtTitle>
               <FtText>Nie pobieramy żadnych opłat związanych z eksploatacją maszyny, jej instalacją, czy też szkoleniu pracowników w zakresie jej obsługi.</FtText>
           </FeaturesRow>
-          <FeaturesRow ref={AnimatedFtBox2}>
+          <FeaturesRow className="animated-ft-box">
               <FtSpan>2</FtSpan>
               <FtTitle>Expresowa dostawa sprzętu</FtTitle>
               <FtText>Kserokopiarki które sprzedajemy, czy też dzierżawimy, wysyłamy tego samego lub następnego dnia roboczego na adres wskazany przez klienta.</FtText>
           </FeaturesRow>
-          <FeaturesRow ref={AnimatedFtBox3}>
+          <FeaturesRow className="animated-ft-box">
               <FtSpan>3</FtSpan>
               <FtTitle>Kserokopiarki firmy Konica Minolta</FtTitle>
               <FtText>Konica Minolta jest jednym z liderów, jeżeli chodzi o produkcję kopiarek - sprzęt cechuje wytrzymałość i długi czas żywotności, a firma usługi świadczy od 1928 roku.</FtText>
