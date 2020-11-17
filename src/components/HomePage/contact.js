@@ -9,14 +9,16 @@ import gsap from "gsap/gsap-core"
 const Kontakt = styled.section`
     margin: 100px 0;
     display: flex;
+    overflow: hidden;
     @media only screen and (min-width: 1921px){
         margin: 100px auto;
-        width: 1905px;
+        max-width: 1905px;
     }
     @media only screen and (max-width: 768px){
         flex-direction: column;
     }
 `
+
 const KontaktLeft = styled.div`
     padding: 50px 50px 50px 15em;
     display: flex;
@@ -24,6 +26,7 @@ const KontaktLeft = styled.div`
     justify-content: center;
     background-color: #3E7094;
     width: 50%;
+    position: relative;
     @media only screen and (max-width: 1440px){
         padding: 50px 50px 50px 4em;
     }
@@ -31,7 +34,16 @@ const KontaktLeft = styled.div`
         padding: 50px 50px 50px 2em;
         width: 100%;
     }
-    
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -59vw;
+        width: 60vw;
+        height: 100%;
+        background-color: #3E7094;
+        z-index: -1;
+    }
     
 `
 const KontaktRight = styled.div`

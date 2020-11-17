@@ -11,24 +11,34 @@ import IMGKolorowe from "../../images/kolorowe.svg"
 
 const Ksero = styled.div`
     padding: 0;
-    @media only screen and (min-width: 1921px){
-        margin: 100px auto;
-        width: 1905px;
-    }
+    overflow: hidden;
 `
 const KseroWrapper = styled.div`
-    min-height: 50vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 100px;
     padding: 100px 15em 0 15em;
+    @media only screen and (min-width: 1921px){
+      padding: 0;
+    }
     @media only screen and (max-width: 1440px){
       padding: 100px 4em 0 4em;
     }
     @media only screen and (max-width: 768px){
       flex-direction: column;
       padding: 100px 2em 0 2em;
+    }
+    
+`
+const KseroContainer = styled.div`
+
+    @media only screen and (min-width: 1921px){
+        max-width: 1905px;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: 768px){
+      flex-direction: column;
     }
     
 `
@@ -71,9 +81,20 @@ const KseroMore = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
     @media only screen and (max-width: 768px){
       margin: 0 0 100px 2em;
       padding: 50px 2em 50px 30px;
+    }
+
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: #EFF8FF;
     }
 `
 
@@ -180,35 +201,37 @@ function HomeKsero() {
 
     return(
         <Ksero>
-            <KseroWrapper>
-                <KseroBox className="ksero-box-anim-trigger">
-                    <KseroIMG src={KseroImg} alt="Bizhub c308 Wynajem kserokopiarek do biur" className="ksero-box-anim"/>
-                    <KseroTitle>Bizhub C308</KseroTitle>
-                </KseroBox>
-                <KseroBox>
-                    <KseroIMG src={KseroImg2} alt="Bizhub c558 Wynajem ksero" className="ksero-box-anim"/>
-                    <KseroTitle>Bizhub C558</KseroTitle>
-                </KseroBox>
-                <KseroBox>
-                    <KseroIMG src={KseroImg3} alt="Bizhub c654 Dzierżawa kserokopiarek Piotrków" className="ksero-box-anim"/>
-                    <KseroTitle>Bizhub C654</KseroTitle>
-                </KseroBox>
-            </KseroWrapper>
-            <KseroMore>
-                <MoreTitle>Zobacz wszystkie dostępne modele</MoreTitle>
-                <KseroMoreWrapper>
-                    <KseroLeft>
-                        <KseroMoreTitle>Czarno-białe</KseroMoreTitle>
-                        <KseroMoreImg><img src={IMGCzarnoBiale} alt=""/></KseroMoreImg>
-                        <Button><Link to="/kserokopiarki">Zobacz więcej</Link></Button>
-                    </KseroLeft>
-                    <KseroRight>
-                        <KseroMoreTitle>Kolorowe</KseroMoreTitle>
-                        <KseroMoreImg><img src={IMGKolorowe} alt=""/></KseroMoreImg>
-                        <Button><Link to="/kserokopiarki">Zobacz więcej</Link></Button>
-                    </KseroRight>
-                </KseroMoreWrapper>
-            </KseroMore>
+            <KseroContainer>
+                <KseroWrapper>
+                    <KseroBox className="ksero-box-anim-trigger">
+                        <KseroIMG src={KseroImg} alt="Bizhub c308 Wynajem kserokopiarek do biur" className="ksero-box-anim"/>
+                        <KseroTitle>Bizhub C308</KseroTitle>
+                    </KseroBox>
+                    <KseroBox>
+                        <KseroIMG src={KseroImg2} alt="Bizhub c558 Wynajem ksero" className="ksero-box-anim"/>
+                        <KseroTitle>Bizhub C558</KseroTitle>
+                    </KseroBox>
+                    <KseroBox>
+                        <KseroIMG src={KseroImg3} alt="Bizhub c654 Dzierżawa kserokopiarek Piotrków" className="ksero-box-anim"/>
+                        <KseroTitle>Bizhub C654</KseroTitle>
+                    </KseroBox>
+                </KseroWrapper>
+                <KseroMore>
+                    <MoreTitle>Zobacz wszystkie dostępne modele</MoreTitle>
+                    <KseroMoreWrapper>
+                        <KseroLeft>
+                            <KseroMoreTitle>Czarno-białe</KseroMoreTitle>
+                            <KseroMoreImg><img src={IMGCzarnoBiale} alt=""/></KseroMoreImg>
+                            <Button><Link to="/kserokopiarki">Zobacz więcej</Link></Button>
+                        </KseroLeft>
+                        <KseroRight>
+                            <KseroMoreTitle>Kolorowe</KseroMoreTitle>
+                            <KseroMoreImg><img src={IMGKolorowe} alt=""/></KseroMoreImg>
+                            <Button><Link to="/kserokopiarki">Zobacz więcej</Link></Button>
+                        </KseroRight>
+                    </KseroMoreWrapper>
+                </KseroMore>
+            </KseroContainer>
         </Ksero>
     )
   }

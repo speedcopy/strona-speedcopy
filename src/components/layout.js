@@ -25,6 +25,24 @@ const GlobalStyles = createGlobalStyle`
         color: #3E7094;
         background: #36BEEC;
     }
+    ::-webkit-scrollbar {
+    width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+    background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+    background: linear-gradient(0deg, rgba(54, 190, 236, 1) 0%, rgba(62, 112, 148, 1) 100%);
+    border-radius: 20px;
+    //border: 6px solid transparent;
+    background-clip: content-box;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+    }
     p{
         font-weight: 300;
         letter-spacing: -1px;
@@ -59,7 +77,7 @@ const GlobalStyles = createGlobalStyle`
 const Layout = ({children}) => (
     <>
         <GlobalStyles/>
-            {children}
+        {children}
     </>
 );
 

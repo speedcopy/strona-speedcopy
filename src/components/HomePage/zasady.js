@@ -16,10 +16,6 @@ const Zasady = styled.div`
     display: flex;
     background-color: #EFF8FF;
     position: relative;
-    @media only screen and (min-width: 1921px){
-        margin: 100px auto;
-        width: 1905px;
-    }
     @media only screen and (max-width: 1440px){
       padding: 0 4em;
     }
@@ -29,6 +25,16 @@ const Zasady = styled.div`
     }
     
 `
+const ZasadyContainer = styled.div`
+    display: flex;
+    position: relative;
+    max-width: 1905px;
+    margin: 0 auto;
+    @media only screen and (max-width: 768px){
+      flex-direction: column;
+    }
+`
+
 const ZasadyLeft = styled.div`
     width: 50%;
     margin-right: 50px;
@@ -145,18 +151,20 @@ function HomeZasady() {
 }, []);
     return(
       <Zasady>
-          <ZasadyLeft className="zasady-left-trigger">
-              <ZasadyH3 ref={zasadyRefH4}>Jasne zasady wynajmu</ZasadyH3>
-              <ZasadyText>Przez cały okres wynajmu urządzenie pozostaje własnością naszej firmy i jest objęte bezpłatną, pełną opieką serwisową, a użytkownik nie ponosi żadnych kosztów związanych z eksploatacją.
-                Dzięki temu wszelkie ewentualne problemy związane z jego użytkowaniem są naszymi problemami, a nie Wynajmującego.</ZasadyText>
-          </ZasadyLeft>
-          <ZasadyRight className="zasady-right-trigger">
-              <StyledIMG src={ZasadyImg}/>
-              <HoverSpan ref={ZasadySpan}></HoverSpan>
-          </ZasadyRight>
-          <TrianglesWrapper className="triangles-anim">
-            <IMGTriangles src={ZasadyTriangles} alt=""/>
-          </TrianglesWrapper>
+        <ZasadyContainer>
+            <ZasadyLeft className="zasady-left-trigger">
+                <ZasadyH3 ref={zasadyRefH4}>Jasne zasady wynajmu</ZasadyH3>
+                <ZasadyText>Przez cały okres wynajmu urządzenie pozostaje własnością naszej firmy i jest objęte bezpłatną, pełną opieką serwisową, a użytkownik nie ponosi żadnych kosztów związanych z eksploatacją.
+                  Dzięki temu wszelkie ewentualne problemy związane z jego użytkowaniem są naszymi problemami, a nie Wynajmującego.</ZasadyText>
+            </ZasadyLeft>
+            <ZasadyRight className="zasady-right-trigger">
+                <StyledIMG src={ZasadyImg}/>
+                <HoverSpan ref={ZasadySpan}></HoverSpan>
+            </ZasadyRight>
+            <TrianglesWrapper className="triangles-anim">
+              <IMGTriangles src={ZasadyTriangles} alt=""/>
+            </TrianglesWrapper>
+        </ZasadyContainer>
       </Zasady>
     )
   }

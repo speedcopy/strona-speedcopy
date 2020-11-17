@@ -11,7 +11,7 @@ import HeroImgArrowsBottom from "../../images/arrows-bottom.svg"
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Hero = styled.div`
+const Hero = styled.section`
     min-height: 100vh;
     overflow: hidden;
     margin: 0;
@@ -24,10 +24,6 @@ const Hero = styled.div`
     background: -webkit-linear-gradient(0deg, rgba(239,248,255,1) 0%, rgba(255,255,255,1) 100%);
     background: linear-gradient(0deg, rgba(239,248,255,1) 0%, rgba(255,255,255,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eff8ff",endColorstr="#ffffff",GradientType=1);
-    @media only screen and (min-width: 1921px){
-        margin: 0 auto;
-        width: 1905px;
-    }
     @media only screen and (max-width: 1440px){
         padding: 120px 4em;
     }
@@ -36,6 +32,18 @@ const Hero = styled.div`
         flex-direction: column;
     }
 `
+
+const HeroWrapper = styled.div`
+    max-width: 1905px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media only screen and (max-width: 768px){
+        flex-direction: column;
+    }
+`
+
 const HeroText = styled.div`
     width: 50%;
     @media only screen and (max-width: 768px){
@@ -190,19 +198,21 @@ function HomeHero() {
 
   return(
     <Hero className="heroScrollTrigger">
-      <HeroText>
-        <H1>
-            <HeroDivBig className="hero-title-anim"><SpanBlue ref={AnimatedSpan1} className="span-blue-anim">Speed</SpanBlue><SpanWhiteBlue ref={AnimatedSpan2} className="SpanWhiteBlueAnim">Copy</SpanWhiteBlue></HeroDivBig>
-            <HeroSpan className="hero-subtitle-anim">Wynajem kserokopiarek do biur w ramach miesięcznego abonamentu. Serwis i naprawy w cenie!</HeroSpan>
-        </H1>
-        <Button><Link to="/dzierzawa-kserokopiarek">Zobacz ofertę</Link></Button>
-      </HeroText>
-      <HeroImageWrapper>
-        <HeroWrapperIMG src={HeroImg} alt="Wynajem kserokopiarek Piotrków Trybunalski" />
-        <CircleLines src={HeroImgCircleLines} className="circle-lines-anim"/>
-        <CircleGradient src={HeroImgCircleGradient} className="circle-gradient-anim"/>
-        <ArrowsBottom src={HeroImgArrowsBottom}/>
-      </HeroImageWrapper>
+        <HeroWrapper>
+            <HeroText>
+                <H1>
+                    <HeroDivBig className="hero-title-anim"><SpanBlue ref={AnimatedSpan1} className="span-blue-anim">Speed</SpanBlue><SpanWhiteBlue ref={AnimatedSpan2} className="SpanWhiteBlueAnim">Copy</SpanWhiteBlue></HeroDivBig>
+                    <HeroSpan className="hero-subtitle-anim">Wynajem kserokopiarek do biur w ramach miesięcznego abonamentu. Serwis i naprawy w cenie!</HeroSpan>
+                </H1>
+                <Button><Link to="/dzierzawa-kserokopiarek">Zobacz ofertę</Link></Button>
+            </HeroText>
+            <HeroImageWrapper>
+                <HeroWrapperIMG src={HeroImg} alt="Wynajem kserokopiarek Piotrków Trybunalski" />
+                <CircleLines src={HeroImgCircleLines} className="circle-lines-anim"/>
+                <CircleGradient src={HeroImgCircleGradient} className="circle-gradient-anim"/>
+                <ArrowsBottom src={HeroImgArrowsBottom}/>
+            </HeroImageWrapper>
+        </HeroWrapper>
     </Hero>
   )
 }

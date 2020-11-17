@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import "../layouts/menu.css"
 
+import LogoImg from '../images/speedcopy-logo-small.png'
 
 const NAV = styled.nav`
     position: absolute;
@@ -39,6 +40,16 @@ const NAV = styled.nav`
 `
 const LogoLink = styled(Link)`
     display: flex;
+    max-width: 20%;
+
+    @media only screen and (max-width: 768px){
+        max-width: 40%;
+    }
+
+    img{
+        width: 100%;
+        height: auto;
+    }
 `
 const DropdownContent = styled.ul`
     display: none;
@@ -169,7 +180,7 @@ const Nav = () => {
             <a href="mailto:speed.copy@op.pl">speed.copy@op.pl</a>
         </TopBar>
         <NAV>
-            <LogoLink to="/">LOGO</LogoLink>
+            <LogoLink to="/"><img src={LogoImg} alt="SpeedCopy Wynajem kserokopiarek logo" /></LogoLink>
             <NavList>
                 <li><Link to="/">Strona główna</Link></li>
                 <li><Link to="/o-nas">O nas</Link></li>

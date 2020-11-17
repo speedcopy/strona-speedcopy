@@ -8,14 +8,21 @@ import WynajemImg from "../../images/Wynajem-ksero-piotrkow.jpg"
 
 const Wynajem = styled.div`
     display: flex;
-    @media only screen and (min-width: 1921px){
-        margin: 0 auto;
-        width: 1905px;
-    }
+    background-color: #EFF8FF;
     @media only screen and (max-width: 768px){
       flex-direction: column;
     }
 `
+const WynajemContainer = styled.div`
+    display: flex;
+    margin: 0 auto;
+    max-width: 1905px;
+    @media only screen and (max-width: 768px){
+      flex-direction: column;
+      width: auto;
+    }
+`
+
 
 const WynajemLeft = styled.div`
     width: 50%;
@@ -100,14 +107,16 @@ const WynajemLeftSpan = styled.span`
 const HomeWynajem = () => {
     return(
       <Wynajem>
-        <WynajemLeft className="wynajem-left-anim-trigger">
-          <WynajemLeftSpan className="wynajem-left-anim"></WynajemLeftSpan>
-        </WynajemLeft>
-        <WynajemRight className="wynajem-right-trigger">
-          <H2 className="wynajem-h2-anim">Jak działa wynajem kserokopiarek/ksero?</H2>
-          <WynajemText className="wynajem-text-anim">Wynajem kserokopiarek to możliwość użytkowania sprzętu w ramach abonamentu miesięcznego: bez konieczności zakupu, bez ponoszenia kosztów części zamiennych, bez kosztów materiałów eksploatacyjnych oraz opłat związanych z okresowymi przeglądami i konserwacjami</WynajemText>
-          <Button className="wynajem-button-anim"><Link to="/dzierzawa-kserokopiarek">Zobacz ofertę</Link></Button>
-        </WynajemRight>
+        <WynajemContainer>
+          <WynajemLeft className="wynajem-left-anim-trigger">
+            <WynajemLeftSpan className="wynajem-left-anim"></WynajemLeftSpan>
+          </WynajemLeft>
+          <WynajemRight className="wynajem-right-trigger">
+            <H2 className="wynajem-h2-anim">Jak działa wynajem kserokopiarek/ksero?</H2>
+            <WynajemText className="wynajem-text-anim">Wynajem kserokopiarek to możliwość użytkowania sprzętu w ramach abonamentu miesięcznego: bez konieczności zakupu, bez ponoszenia kosztów części zamiennych, bez kosztów materiałów eksploatacyjnych oraz opłat związanych z okresowymi przeglądami i konserwacjami</WynajemText>
+            <Button className="wynajem-button-anim"><Link to="/dzierzawa-kserokopiarek">Zobacz ofertę</Link></Button>
+          </WynajemRight>
+        </WynajemContainer>
       </Wynajem>
     )
   }

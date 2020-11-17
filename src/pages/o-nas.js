@@ -27,9 +27,19 @@ const Hero = styled.div`
     }
     @media only screen and (max-width: 768px){
         padding: 0 2em;
+    }
+`
+const HeroContainer = styled.div`
+    width: 1905px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @media only screen and (max-width: 768px){
         flex-direction: column;
     }
 `
+
 const HeroBg = styled.div`
     position: absolute;
     top: 0;
@@ -86,6 +96,11 @@ const AboutText = styled.div`
         padding: 0 2em 100px 2em;
     }
 `
+const AboutTextContainer = styled.div`
+    max-width: 1905px;
+    margin: 0 auto;
+`
+
 const TextWrapper = styled.div`
    width: 50%;
         @media only screen and (max-width: 768px){
@@ -114,6 +129,17 @@ const AboutText2 = styled.div`
         flex-direction: column;
     }
 `
+const AboutText2Container = styled.div`
+    max-width: 1905px;
+    margin: 0 auto;
+    display: flex;
+    @media only screen and (max-width: 768px){
+        flex-direction: column;
+    }
+`
+
+
+
 const Text2Left = styled.div`
     width: 50%;
     @media only screen and (max-width: 768px){
@@ -154,6 +180,17 @@ const AboutText3 = styled.div`
     }
     @media only screen and (max-width: 768px){
         padding: 0 2em 100px 2em;
+    }
+`  
+const AboutText3Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    @media only screen and (min-width: 1921px){
+        margin: 0 auto;
+        width: 1905px;
     }
 `
 const Container = styled.div`
@@ -260,49 +297,57 @@ function AboutPage() {
         </Helmet>
         <Nav/>
         <Hero className="about-hero-trigger">
-            <HeroBg></HeroBg>
-            <H1>
-                <Heading className="about-title-anim">O nas</Heading>
-                <SubHead className="about-subtitle-anim">SpeedCopy - <br/>
-                Wynajem kserokopiarek Piotrków Trybunalski</SubHead>
-            </H1>
-            <ImgWrapper>
-                <img src={OnasImg} alt="Wynajem kserokopiarek Piotrków, Łódź" className="about-img-scrub"/>
-            </ImgWrapper>
+            <HeroContainer>
+                <HeroBg></HeroBg>
+                <H1>
+                    <Heading className="about-title-anim">O nas</Heading>
+                    <SubHead className="about-subtitle-anim">SpeedCopy - <br/>
+                    Wynajem kserokopiarek Piotrków Trybunalski</SubHead>
+                </H1>
+                <ImgWrapper>
+                    <img src={OnasImg} alt="Wynajem kserokopiarek Piotrków, Łódź" className="about-img-scrub"/>
+                </ImgWrapper>
+            </HeroContainer>
         </Hero>
         <AboutText>
-            <TextWrapper>
-                <p>SpeedCopy to marka należąca do firmy rodzinnej, działającej na terenie Polski od 2001 roku, zajmującej się wynajmem, sprzedażą oraz serwisem kserokopiarek biurowych o wysokiej jakości firmy KONICA. Posiadamy rożne modele kopiarek: małe oraz wysokonakładowe - dla małych i dużych biur, z możliwością automatycznego segregowania dokumentów, kopiowania i drukowania dwustronnego, skanowania, faxowania, działające w sieci.</p>
-            </TextWrapper>
+            <AboutTextContainer>
+                <TextWrapper>
+                    <p>SpeedCopy to marka należąca do firmy rodzinnej, działającej na terenie Polski od 2001 roku, zajmującej się wynajmem, sprzedażą oraz serwisem kserokopiarek biurowych o wysokiej jakości firmy KONICA. Posiadamy rożne modele kopiarek: małe oraz wysokonakładowe - dla małych i dużych biur, z możliwością automatycznego segregowania dokumentów, kopiowania i drukowania dwustronnego, skanowania, faxowania, działające w sieci.</p>
+                </TextWrapper>
+            </AboutTextContainer>
         </AboutText>
         <AboutText2 className="TextRight-trigger">
-            <Text2Left><H3>Zalety współpracy z nami</H3></Text2Left>
-            <Text2Right className="TextRight-anim">
-                <p>Instalacja maszyny oraz szkolenie z obsługi jest za darmo.</p>
-                <p>Serwis wraz z częściami eksploatacyjnymi również są darmowe.</p>
-                <p>Najem maszyny rozliczany jest według ilości skopiowanych stron w ciągu miesiąca kalendarzowego. (minimalna wymagana ilość miesięczna to „do negocjacji", 1 kopia to ,,do negocjacji” groszy, minimalny czynsz to ,,do negocjacji" zł miesięcznie).</p>
-                <p>Przykładowa wysokość czynszu miesięcznego: czynsz minimalny 105 zł (sto zł) netto miesięcznie - wynika z iloczynu ilości kopii 1500 i ceny za kopie 7 groszy netto.</p>
-                <p>Proponowany okres umowy: na czas nieokreślony z możliwością wypowiedzenia z 3 miesięcznym wyprzedzeniem dla każdej ze stron.</p>
-                <p>Najem kserokopiarek szczegółowo opisujemy w zakładce DZIERŻAWA.</p>
-                <p>Jeżeli macie Państwo już swoją kserokopiarkę lub kupiliście od nas możecie z nami podpisać UMOWĘ SERWISOWĄ. - szczegóły w zakladce.</p>
-            </Text2Right>
+            <AboutText2Container>
+                <Text2Left><H3>Zalety współpracy z nami</H3></Text2Left>
+                <Text2Right className="TextRight-anim">
+                    <p>Instalacja maszyny oraz szkolenie z obsługi jest za darmo.</p>
+                    <p>Serwis wraz z częściami eksploatacyjnymi również są darmowe.</p>
+                    <p>Najem maszyny rozliczany jest według ilości skopiowanych stron w ciągu miesiąca kalendarzowego. (minimalna wymagana ilość miesięczna to „do negocjacji", 1 kopia to ,,do negocjacji” groszy, minimalny czynsz to ,,do negocjacji" zł miesięcznie).</p>
+                    <p>Przykładowa wysokość czynszu miesięcznego: czynsz minimalny 105 zł (sto zł) netto miesięcznie - wynika z iloczynu ilości kopii 1500 i ceny za kopie 7 groszy netto.</p>
+                    <p>Proponowany okres umowy: na czas nieokreślony z możliwością wypowiedzenia z 3 miesięcznym wyprzedzeniem dla każdej ze stron.</p>
+                    <p>Najem kserokopiarek szczegółowo opisujemy w zakładce DZIERŻAWA.</p>
+                    <p>Jeżeli macie Państwo już swoją kserokopiarkę lub kupiliście od nas możecie z nami podpisać UMOWĘ SERWISOWĄ. - szczegóły w zakladce.</p>
+                </Text2Right>
+            </AboutText2Container>
         </AboutText2>
         <AboutText3 className="AboutText3-trigger">
-            <H3Text3 className="Text3-title-anim">Nie interesuje Państwa:</H3Text3>
-            <Container>
-                <Box>
-                    <p>Serwis</p>
-                    <FtSVG src={ServiceSVG} alt=""></FtSVG>
-                </Box>
-                <Box>
-                    <p>Zakup części i materiałów eksploatacyjnych</p>
-                    <FtSVG src={MoneySVG} alt=""></FtSVG>
-                </Box>
-                <Box>
-                    <p>Okresowe przeglądy i czyszczenie kopiarek</p>
-                    <FtSVG src={CleanSVG} alt=""></FtSVG>
-                </Box>
-            </Container>
+            <AboutText3Container>
+                <H3Text3 className="Text3-title-anim">Nie interesuje Państwa:</H3Text3>
+                <Container>
+                    <Box>
+                        <p>Serwis</p>
+                        <FtSVG src={ServiceSVG} alt=""></FtSVG>
+                    </Box>
+                    <Box>
+                        <p>Zakup części i materiałów eksploatacyjnych</p>
+                        <FtSVG src={MoneySVG} alt=""></FtSVG>
+                    </Box>
+                    <Box>
+                        <p>Okresowe przeglądy i czyszczenie kopiarek</p>
+                        <FtSVG src={CleanSVG} alt=""></FtSVG>
+                    </Box>
+                </Container>
+            </AboutText3Container>
         </AboutText3>
         <Footer/>
     </Layout>
