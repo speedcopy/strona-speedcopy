@@ -204,7 +204,7 @@ const Nav = () => {
                     <li><Link to="/">Strona główna</Link></li>
                     <li><Link to="/o-nas">O nas</Link></li>
                     <li><Link to="/dzierzawa-kserokopiarek">Dzierżawa</Link></li>
-                    <li><Link to="/kserokopiarki">Kserokopiarki</Link></li>
+                    <li><Link to="#">Kserokopiarki</Link></li>
                     <li><Link to="/kserokopiarki/kolorowe">Kolorowe</Link></li>
                     <li><Link to="/kserokopiarki/czarno-biale">Czarno-białe</Link></li>
                     <li><Link to="/serwis">Serwis</Link></li>

@@ -222,12 +222,12 @@ function HomeKsero() {
                         <KseroLeft>
                             <KseroMoreTitle>Czarno-białe</KseroMoreTitle>
                             <KseroMoreImg><img src={IMGCzarnoBiale} alt=""/></KseroMoreImg>
-                            <Button><Link to="/kserokopiarki">Zobacz więcej</Link></Button>
+                            <Button><Link to="/kserokopiarki/czarno-biale">Zobacz więcej</Link></Button>
                         </KseroLeft>
                         <KseroRight>
                             <KseroMoreTitle>Kolorowe</KseroMoreTitle>
                             <KseroMoreImg><img src={IMGKolorowe} alt=""/></KseroMoreImg>
-                            <Button><Link to="/kserokopiarki">Zobacz więcej</Link></Button>
+                            <Button><Link to="/kserokopiarki/kolorowe">Zobacz więcej</Link></Button>
                         </KseroRight>
                     </KseroMoreWrapper>
                 </KseroMore>

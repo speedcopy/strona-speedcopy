@@ -1,6 +1,8 @@
 import React from "react"
 import { createGlobalStyle } from "styled-components"
 
+
+
 const GlobalStyles = createGlobalStyle`
     body{
         margin: 0;
@@ -26,7 +28,7 @@ const GlobalStyles = createGlobalStyle`
         background: #36BEEC;
     }
     ::-webkit-scrollbar {
-    width: 10px;
+    width: 15px;
     }
 
     ::-webkit-scrollbar-track {
@@ -73,6 +75,10 @@ const GlobalStyles = createGlobalStyle`
         }
     }
 `
+
+
+
+
 
 const Layout = ({children}) => (
     <>
