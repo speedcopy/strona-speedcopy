@@ -79,6 +79,7 @@ function IndexPage() {
       <Layout>
         <Helmet>
           <title>Wynajem kserokopiarek - Piotrków Trybunalski | SpeedCopy</title>
+          <meta name="description" content="Wynajem i dzierżawa kserokopiarek Piotrków Trybunalski, Łódź i okolice. Darmowe testowanie. Serwis i naprawy w cenie" />
         </Helmet>
         <Nav/>
         <HomeHero/>

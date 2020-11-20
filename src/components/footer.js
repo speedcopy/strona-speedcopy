@@ -171,8 +171,8 @@ const Footer = () => {
                     </LeftWrapper>
                     <RightWrapper>
                         <MenuTitle>Kontakt:</MenuTitle>
-                        <KontaktPhone><a href="tel:535492135"><img src={PhoneSVG} alt=""/>+48 535-492-135</a></KontaktPhone>
-                        <KontaktMail><a href="mailto:xerofactor@op.pl"><img src={EmailSVG} alt=""/>xerofactor@op.pl</a></KontaktMail>
+                        <KontaktPhone><a href="tel:533030647"><img src={PhoneSVG} alt=""/>+48 533-030-647</a></KontaktPhone>
+                        <KontaktMail><a href="mailto:speed.copy@op.pl"><img src={EmailSVG} alt=""/>speed.copy@op.pl</a></KontaktMail>
                         <FbLink href="#"><img src={FacebookSVG} alt="Facebook SpeedCopy Wynajem kserokopiarek Piotrków Trybunalski"/></FbLink>
                     </RightWrapper>
                 </FooterLeft>

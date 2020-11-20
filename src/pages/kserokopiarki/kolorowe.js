@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { Helmet } from "react-helmet"
 
 import Layout from "../../components/layout"
 import Nav from "../../components/nav"
@@ -55,6 +56,11 @@ const Heading = styled.span`
 `
 const KseroContent = styled.section`
     padding: 0 15em;
+    @media only screen and (min-width: 1921px){
+        max-width: 1905px;
+        margin: 0 auto;
+        padding: 0;
+    }
     @media only screen and (max-width: 1440px){
         padding: 0px 4em;
     }
@@ -109,6 +115,10 @@ const StyledUl = styled.ul`
 
 const KolorowePage = () => (
   <Layout>
+    <Helmet>
+        <title>Kserokopiarki kolorowe - Wynajem i dzierżawa Piotrków | SpeedCopy</title>
+        <meta name="description" content="Kserokopiarki do druku kolorowego z możliwością wynajmu lub dzierżawy na terenie Piotrkowa Trybunalskiego, Łodzi i okolic. Niskie ceny i darmowy serwis." />
+    </Helmet>
     <Nav/>
     <Hero>
         <H1>

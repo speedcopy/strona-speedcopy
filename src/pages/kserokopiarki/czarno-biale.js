@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { Helmet } from "react-helmet"
 
 import Layout from "../../components/layout"
 import Nav from "../../components/nav"
@@ -31,6 +32,10 @@ const Heading = styled.span`
 
 const CzarnoBialePage = () => (
   <Layout>
+    <Helmet>
+        <title>Kserokopiarki czarno-białe - Wynajem i dzierżawa Piotrków | SpeedCopy</title>
+        <meta name="description" content="Kserokopiarki do druku czarno białego z możliwością wynajmu lub dzierżawy na terenie Piotrkowa Trybunalskiego, Łodzi i okolic. Niskie ceny i darmowy serwis." />
+    </Helmet>
     <Nav/>
     <Hero>
         <H1>

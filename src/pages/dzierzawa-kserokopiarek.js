@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import styled from "styled-components"
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Helmet } from "react-helmet"
 
 import Layout from "../components/layout"
 import Nav from "../components/nav"
@@ -266,6 +267,10 @@ function DzierzawaPage() {
     })
   return(
     <Layout>
+        <Helmet>
+          <title>Dzierżawa i wynajem kserokopiarek - Piotrków Trybunalski | SpeedCopy</title>
+          <meta name="description" content="Dzierżawa i wynajem kserokopiarek Piotrków Trybunalski, Łódź i okolice. Jasne zasady i darmowy serwis dla Twojej firmy." />
+        </Helmet>
         <Nav/>
         <Hero>
             <H1>

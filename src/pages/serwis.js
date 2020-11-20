@@ -188,6 +188,7 @@ function SerwisPage() {
         <Layout>
             <Helmet>
                 <title>Serwis ksero - wynajem kserokopiarek | SpeedCopy</title>
+                <meta name="description" content="Serwis kserokopiarek Piotrków Trybunalski. Darmowy serwis i naprawy dla klientów SpeedCopy. Proste i przejrzyste zasady wynajmu." />
             </Helmet>
             <Nav/>
             <Hero>

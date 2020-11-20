@@ -294,6 +294,7 @@ function AboutPage() {
     <Layout>
         <Helmet>
         <title>O nas - wynajem kserokopiarek | SpeedCopy</title>
+        <meta name="description" content="SpeedCopy wynajem i dzierżawa kserokopiarek dla biur. Profesjonalne ksero w Twoim biurze z darmowym serwisem." />
         </Helmet>
         <Nav/>
         <Hero className="about-hero-trigger">
