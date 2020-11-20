@@ -32,7 +32,6 @@ function IndexPage() {
         scrollTrigger: {
           trigger: '.wynajem-right-trigger',
           start: 'top 75%',
-          toggleActions: 'play none none reverse',
         }
       });
       gsap.from('.wynajem-text-anim', 1, {
@@ -43,7 +42,6 @@ function IndexPage() {
         scrollTrigger: {
           trigger: '.wynajem-right-trigger',
           start: 'top 75%',
-          toggleActions: 'play none none reverse',
         }
       });
       gsap.from('.wynajem-button-anim', 0.8, {
@@ -54,7 +52,6 @@ function IndexPage() {
         scrollTrigger: {
           trigger: '.wynajem-right-trigger',
           start: 'top 75%',
-          toggleActions: 'play none none reverse',
         }
       });
       gsap.fromTo('.wynajem-left-anim', 1.5, {
@@ -67,7 +64,6 @@ function IndexPage() {
         scrollTrigger: {
           trigger: '.wynajem-left-anim-trigger',
           start: 'top center',
-          toggleActions: 'play none none reverse',
         }
       }
       );
@@ -80,6 +76,7 @@ function IndexPage() {
         <Helmet>
           <title>Wynajem kserokopiarek - Piotrków Trybunalski | SpeedCopy</title>
           <meta name="description" content="Wynajem i dzierżawa kserokopiarek Piotrków Trybunalski, Łódź i okolice. Darmowe testowanie. Serwis i naprawy w cenie" />
+          <meta name="google-site-verification" content="WINCG2EvHbByTqVqaD3e8qgcCiAA0TFEffveEomP-YI" />
         </Helmet>
         <Nav/>
         <HomeHero/>

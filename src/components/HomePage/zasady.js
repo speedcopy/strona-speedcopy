@@ -122,7 +122,6 @@ function HomeZasady() {
         { x: '200%', ease: 'Expo.easeInOut', scrollTrigger: {
           trigger: '.zasady-right-trigger',
           start: 'top 75%',
-          toggleActions: 'play none none reverse',
         }}
       );
       
@@ -133,7 +132,6 @@ function HomeZasady() {
         scrollTrigger: {
           trigger: '.zasady-left-trigger',
           start: 'top 75%',
-          toggleActions: 'play none none reverse',
         }
       });
 
